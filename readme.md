@@ -66,33 +66,34 @@ pip install al-faraheedy-python
 ```python
 from al_faraheedy import ArabicPoetryAnalyzer
 
-# Initialize the analyzer
 analyzer = ArabicPoetryAnalyzer()
 
-# Analyze a classical Arabic verse
-verse = "ما بيْن مفْترقٍ و مفْترقِ = ممْلوْءةٌ بمقاتليْ طرقي"
-result = analyzer.analyze_classical_verse(verse)
+# Analyze classical verse
+poem = [
+    "ما بيْن مفْترقٍ و مفْترقِ",
+    "ممْلوْءةٌ بمقاتليْ طرقيْ",
+    "أنّى التفتّ و حيْثما ضبحتْ",
+    "خيْليْ أجدْ رأْسيْ على طبقِ",
+    "فوْق الرِّماحِ أرى أعاديهُ",
+    "حملوْهُ مفْغوْر الفم الدبقِ",
+    "دمهُ يقطّر و هْو يلْعنهمْ",
+    "لوْ كنْتُ منْ ماءٍ للمْ أرقِ",
+]
+for index, verse in enumerate(poem):
+    is_ajez = any([index ==0, index % 2 == 0])  # عند تصريع القصيدة، نعامل صدر المطلع معاملة العجز في الإشباع
+    result = analyzer.analyze_classical_verse(verse, is_ajez)
+    print(f"Verse {index + 1}: {result}")
 
-print(f"Original verse: {verse}")
-print(f"Detected meter: {result['ba7er_name']}")
-print(f"Prosodic notation: {result['rokaz']}")
-print(f"Prosodic feet: {result['tafa3eel']}")
 
 # Analyze rhyme patterns
-verses = ["طرقي", "حبقي", "عبقي"]
-rhyme_analysis = analyzer.analyze_rhyme_patterns(verses)
+verses = ["مفْترقِ", "طرقيْ", "طبقِ", "الدبقِ", "لمْ أرقِ"]
+for index, verse in enumerate(verses):
+    result = analyzer.analyze_rhyme_patterns(verse)
+    print(f"Rhyme {index + 1}: {result}")
 
-for i, analysis in enumerate(rhyme_analysis):
-    if hasattr(analysis, 'text'):
-        print(f"Verse {i+1}: {analysis.text} - Type: {analysis.type}")
-
-# Analyze free verse poetry
-poem = '''
-و أنْت تعدّ فطوْركَ فكّرْ بغيْركَ لا تنْس قوْت الحمامْ
-'''
-free_verse_result = analyzer.analyze_free_verse(poem)
-if 'poemErr' not in free_verse_result:
-    print(f"Dominant meter: {free_verse_result['ba7er']}")
+# Analyze free verse
+free_result = analyzer.analyze_free_verse("تمهّل و لا تمْتحنّيْ بما لا أطيْقُ")
+print(f"Free Verse Analysis: {free_result}")
 ```
 
 ## API Reference

@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include requirements.txt
+include al_faraheedy/
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
