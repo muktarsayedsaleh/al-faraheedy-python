@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://pepy.tech/badge/al-faraheedy-python)](https://pepy.tech/project/al-faraheedy-python)
 
+
 **مكتبة بايثون تغلّف نظام الفراهيدي لحوسبة عروض الشعر العربي و قافيته**
 
 **Al Faraheedy Python: A Pythonized version of the Arabic Poetry Rhythm and Rhyme Analyzer Project**
@@ -12,6 +13,13 @@
 A comprehensive Python library for analyzing Arabic poetry, including classical and free verse forms. This is a Python wrapper and enhancement of the original Faraheedy system for computational analysis of Arabic prosody and rhyme. Named after Al-Khalil ibn Ahmad al-Farahidi (الخليل بن أحمد الفراهيدي), the founder of Arabic prosody.
 
 > Original Idea (old unmaintained project): https://github.com/muktarsayedsaleh/Al-Faraheedy-Project
+
+## Warning
+This module was converted from PHP to Python very quickly so I have not tested it well.
+I'm anticipating bugs here and there. so contributions are welcomed
+
+# تحذير
+قمت بتحويل هذه الشيفرة البرمجية من بي إتش بي إلى بايثون بشكل سريع و دون اختبارات مكثفة كتلك التي تمت على نسخة بي اتش بي المستقرّة، لذلك أتوقع ظهور بعض الأخطاء البرمجية و أرحّب بتصحيحاتها المقترحة من قبلكم
 
 ## Features
 
